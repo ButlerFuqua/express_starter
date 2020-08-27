@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 
 module.exports = async () => {
 
-
     const mongoServer = new MongoMemoryServer()
 
     mongoose.Promise = Promise
@@ -24,7 +23,7 @@ module.exports = async () => {
         })
 
         mongoose.connection.once('open', () => {
-            console.log(`MongoDB successfully connected to ${mongoUri}`)
+            console.log(`MongoDB successfully connected to testing daatabase.`)
 
         })
     })

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+// Define Schema ====== //
 const schema = new mongoose.Schema({
     email: {
         type: String,
@@ -13,8 +14,7 @@ const schema = new mongoose.Schema({
                     if (regex.test(email)) resolve(true)
                     else reject(false)
                 })
-            },
-            message: `Email is not the proper format.`
+            }
         }
     },
     username: { type: String, required: true, unique: true },
@@ -28,8 +28,33 @@ const schema = new mongoose.Schema({
     }
 })
 
-const User = mongoose.model(`User`, schema)
+// Methods ====== //
 
+// Find all users
+schema.statics.findAll = async function () {
+    return await this.find({})
+}
+
+// Register a user
+schema.statics.registerUser = async function (userToCreate) {
+
+    let newUser
+    try {
+        newUser = await this.create(userToCreate)
+    } catch (error) {
+        return {
+            error
+        }
+    }
+
+    return {
+        newUser
+    }
+
+}
+
+// Export ====== //
+const User = mongoose.model(`User`, schema)
 module.exports = User
 
 

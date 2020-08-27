@@ -29,9 +29,9 @@ router.post(`/`, async (req, res, next) => {
     const result = await userService.registerUser(reqBody)
     const { newUser, success } = result
 
-    if (!success) return res.json(result)
+    if (!success) return res.status(400).json(result)
 
-    return res.status(200).json({
+    return res.status(201).json({
         success: true,
         message: result.message,
         newUser

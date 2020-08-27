@@ -4,7 +4,8 @@ module.exports = async (DB) => {
 
     mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
 
-    const db = mongoose.connection;
+    const db = mongoose.connection
+    mongoose.set('useCreateIndex', true)
     db.on('error', console.error.bind(console, 'connection error:'))
     db.once('open', () => console.log(`Successfully conected to MongoDB production database.`))
 

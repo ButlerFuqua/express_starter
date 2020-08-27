@@ -28,11 +28,15 @@ class UserService {
             error
         }
 
-
         return {
             success: true,
             message: `A new user has been registered.`,
-            newUser
+            newUser: {
+                _id: newUser._id,
+                email: newUser.email,
+                username: newUser.username,
+                created_at: newUser.created_at
+            }
         }
     }
 }

@@ -10,15 +10,11 @@ const userService = new UserService(User)
 router.get(`/`, async (req, res, next) => {
 
     const result = await userService.index()
-    const { users, success } = result
+    const { success } = result
 
     if (!success) return res.json(result)
 
-    return res.status(200).json({
-        success: true,
-        message: result.message,
-        users
-    })
+    res.status(200).json(result)
 })
 
 // POST - CREATE ==/
@@ -27,19 +23,24 @@ router.post(`/`, async (req, res, next) => {
     const reqBody = req.body
 
     const result = await userService.registerUser(reqBody)
-    const { newUser, success } = result
+    const { success } = result
 
     if (!success) return res.status(400).json(result)
 
-    return res.status(201).json({
-        success: true,
-        message: result.message,
-        newUser
-    })
+    res.status(201).json(result)
 })
 
+// POST - Login
+router.post(`/login`, async (req, res, next) => {
+    const reqBody = req.body
 
+    const result = await userService.login(reqBody)
+    const { success } = result
 
+    if (!success) res.status(500).json(result)
+
+    res.status(200).json(result)
+})
 
 
 module.exports = router

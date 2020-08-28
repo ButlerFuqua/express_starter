@@ -39,6 +39,22 @@ class UserService {
             }
         }
     }
+
+    async login(reqBody) {
+
+        const { email, password } = reqBody
+        const userToLogin = { email, password }
+
+        const loginResponse = await this.userModel.login(userToLogin)
+        const { token } = loginResponse
+
+        return {
+            success: true,
+            message: `User has been logged in.`,
+            token
+        }
+
+    }
 }
 
 module.exports = UserService

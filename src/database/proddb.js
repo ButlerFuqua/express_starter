@@ -10,4 +10,3 @@ module.exports = async (DB) => {
     db.once('open', () => console.log(`Successfully conected to MongoDB production database.`))
 
 }
-

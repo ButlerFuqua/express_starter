@@ -53,6 +53,11 @@ schema.statics.registerUser = async function (userToCreate) {
 
 }
 
+// Login a user
+schema.statics.login = async function (userToLogin) {
+    return { token: '1234abcd' }
+}
+
 // Export ====== //
 const User = mongoose.model(`User`, schema)
 module.exports = User

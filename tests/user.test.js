@@ -49,6 +49,6 @@ describe(`Sample Test`, () => {
         const { success, users } = result
 
         expect(success).toBe(true)
-        expect(users.length > 0).toBe(true)
+        expect(users.length).toBeTruthy()
     })
 })

@@ -11,7 +11,7 @@ A REST API built using Node.js, Express.js, In-memory MongoDB and Mongoose.
 - [Dependencies](#dependencies)
 - [Install and run app](#install-and-run-app)
 - [Test app](#test-app)
-- [Directory](#directory)
+- [App Structure](#app-structure)
 
 ## Requirements
 
@@ -59,7 +59,7 @@ Simply run `yarn test` from the root of the application to run the scripted test
 
 The testing files can be found in the `tests` directory. Jest automatically runs all files with the `.test.js` extension.
 
-# Directory 
+# App Structure 
 
 * `src`
   * `api`

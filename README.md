@@ -73,7 +73,8 @@ The testing files can be found in the `tests` directory. Jest automatically runs
   * `validation` 
     * handle validation
   * `app.js` - entry point of app
-* `tests` - contains jest tests
+* `tests`
+  * contains jest tests
 * `jest-mongo-config` - configuration for temp mongoDB used for testing
 * `jest-config` - configuration file for testing
 * `package.json` - app info, list of dependencies and scripts
